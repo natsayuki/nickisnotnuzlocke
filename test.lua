@@ -1,3 +1,6 @@
+-- Channel name to get messages from
+local channelName = "the42ndturtle";
+
 -- Sets project path to default lua path
 -- Required for libs
 package.path = ";.\\?.lua;C:\\Program Files (x86)\\Lua\\5.1\\lua\\?.lua;C:\\Program Files (x86)\\Lua\\5.1\\lua\\?\\init.lua;C:\\Program Files (x86)\\Lua\\5.1\\?.lua;C:\\Program Files (x86)\\Lua\\5.1\\?\\init.lua;C:\\Program Files (x86)\\Lua\\5.1\\lua\\?.luac"
@@ -63,8 +66,8 @@ end
 -- just go
 while true do
   -- get request from twitch server
-  -- TODO change address when hosted on heroku
-  local body, code, headers, status = http.request("http://localhost:3000");
+  local body, code, headers, status = http.request("http://nickisnotnuzlocke.herokuapp.com/" .. channelName);
+  -- local body, code, headers, status = http.request("http://localhost:3000/" .. channelName);
 
   -- Sets party pokemon name to http response body
   setPokemonName(party2, body);
